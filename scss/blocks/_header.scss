@@ -1,0 +1,126 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  background-color: transparent;
+  padding-top: 56px;
+}
+
+.header__wrapper,
+.header_nav,
+.header_list {
+  display: flex;
+}
+
+.header__wrapper {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_nav {
+  gap: 24px;
+  align-items: center;
+
+  @include tablet() {
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  z-index: 9;
+
+  @include media() {
+    object-fit: calc(153px);
+    width: 153px;
+  }
+}
+
+.header_list {
+  list-style: none;
+  align-items: center;
+  gap: 24px;
+
+  transition: all 0.3s ease;
+
+  @include media() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100vh;
+    padding-bottom: 25vh;
+    background-color: #505050;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(-100%);
+    gap: 30px;
+  }
+}
+
+.header_list__item {
+}
+
+.header_list__item a {
+  color: $text-color;
+  font-family: "Work Sans";
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 130%;
+
+  @include media() {
+    font-size: 24px;
+  }
+}
+
+.nav__btns {
+  display: flex;
+  gap: 24px;
+
+  @include media() {
+    display: none;
+  }
+}
+
+.cart {
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/icn_cart.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.profile {
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/icn_profile.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#menuOpener {
+  visibility: hidden;
+}
+
+#menuOpener:checked + .header_list {
+  transform: translateX(0);
+}
+
+label[for="menuOpener"] {
+  display: none;
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/Menu.svg);
+  background-size: contain;
+
+  @include media() {
+    display: inline-block;
+  }
+}
